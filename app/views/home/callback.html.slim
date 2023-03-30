@@ -1,5 +1,5 @@
 textarea
-  | SPOTIFY_USER_ID: #{@spotify_user.id}
-  | SPOTIFY_TOKEN: #{@spotify_user.credentials["token"]}
-  | SPOTIFY_REFRESH_TOKEN: #{@spotify_user.credentials["refresh_token"]}
-  | SPOTIFY_PLAYLIST_ID: #{@new_playlist.id}
+  | SPOTIFY_USER_ID: #{@user.spotify_user_id}
+  | SPOTIFY_TOKEN: #{@user.spotify_user_token}
+  | SPOTIFY_REFRESH_TOKEN: #{@user.spotify_user_refresh_token}
+  | SPOTIFY_PLAYLIST_ID: #{@user.spotify_playlist_id}

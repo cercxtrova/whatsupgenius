@@ -5,7 +5,6 @@ class HomeController < ApplicationController
   end
 
   def callback
-    @spotify_user = RSpotify::User.new(request.env["omniauth.auth"])
-    @new_playlist = @spotify_user.create_playlist!("WhatsUpgenius", public: false)
+    @user = Users::Create.new(request.env["omniauth.auth"]).perform.user
   end
 end

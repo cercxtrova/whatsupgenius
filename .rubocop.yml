@@ -1,0 +1,225 @@
+#
+# See https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
+#
+# Tip: to ignore rubocop while committing, add `--no-verify`
+#
+
+require: rubocop-rspec
+
+AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: false
+  TargetRubyVersion: 3.1
+  # RuboCop has a bunch of cops enabled by default. This setting tells RuboCop
+  # to ignore them, so only the ones explicitly set in this file are enabled.
+  DisabledByDefault: true
+  EnabledByDefault: false
+  Exclude:
+    - "**/templates/**/*"
+    - "**/vendor/**/*"
+    - "actionpack/lib/action_dispatch/journey/parser.rb"
+    - "config/initializers/devise.rb"
+    - "config/initializers/friendly_id.rb"
+    - "config/initializers/uploadcare.rb"
+    - "config/initializers/simple_form.rb"
+    - "db/schema.rb"
+
+###################
+# Layout
+###################
+
+Layout/LineLength:
+  Enabled: true
+  Max: 120
+
+# Align `when` with `case`.
+Layout/CaseIndentation:
+  Enabled: true
+
+# Align comments with method definitions.
+Layout/CommentIndentation:
+  Enabled: true
+
+# No extra empty lines.
+Layout/EmptyLines:
+  Enabled: false
+
+# In a regular class definition, no empty lines around the body.
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+# In a regular method definition, no empty lines around the body.
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: false
+
+# In a regular module definition, no empty lines around the body.
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+
+# Method definitions after `private` or `protected` isolated calls need no
+# extra level of indentation.
+Layout/IndentationConsistency:
+  Enabled: true
+
+# Access modifiers should be surrounded by blank lines.
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+# Two spaces, no tabs (for indentation).
+Layout/IndentationWidth:
+  Enabled: true
+
+Layout/SpaceAfterColon:
+  Enabled: true
+
+Layout/SpaceAfterComma:
+  Enabled: true
+
+Layout/SpaceAroundEqualsInParameterDefault:
+  Enabled: true
+
+Layout/SpaceAroundKeyword:
+  Enabled: false
+
+# Use a single space around operators.
+Layout/SpaceAroundOperators:
+  Enabled: true
+
+Layout/SpaceBeforeFirstArg:
+  Enabled: false
+
+# Use `foo {}` not `foo{}`.
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+
+# Use `foo { bar }` not `foo {bar}`.
+Layout/SpaceInsideBlockBraces:
+  Enabled: false
+
+# Use `{ a: 1 }` not `{a:1}`.
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+
+Layout/SpaceInsideParens:
+  Enabled: true
+  EnforcedStyle: no_space
+
+# Detect hard tabs, no hard tabs.
+Layout/IndentationStyle:
+  Enabled: true
+
+# Blank lines should not have any spaces.
+Layout/TrailingEmptyLines:
+  Enabled: true
+
+# No trailing whitespace.
+Layout/TrailingWhitespace:
+  Enabled: true
+
+###################
+# Style
+###################
+
+Layout/MultilineMethodDefinitionBraceLayout:
+  Enabled: false
+  EnforcedStyle: new_line
+
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  Enabled: true
+  EnforcedStyle: indented
+
+# Use a guard clause instead of wrapping the code inside a conditional
+# expression.
+Style/GuardClause:
+  Enabled: false
+
+# Prefer &&/|| over and/or.
+Style/AndOr:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+# Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
+Style/HashSyntax:
+  Enabled: true
+
+# Defining a method with parameters needs parentheses.
+Style/MethodDefParentheses:
+  Enabled: true
+
+# Check quotes usage according to lint rule below.
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArguments:
+  Enabled: false
+  EnforcedStyleForMultiline: consistent_comma
+
+# Use quotes for string literals when they are enough.
+Style/RedundantPercentQ:
+  Enabled: true
+
+Style/NegatedIf:
+  Enabled: false
+
+# Top level class documentation
+Style/Documentation:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+###################
+# Lint
+###################
+
+# Use my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+Lint/RequireParentheses:
+  Enabled: true
+
+###################
+# Metrics
+###################
+
+# Avoid methods longer than 10 lines of code.
+Metrics/MethodLength:
+  Enabled: false
+
+# Avoid classes longer than 100 lines of code.
+Metrics/ClassLength:
+  Enabled: false
+
+# Avoid modules longer than 100 lines of code.
+Metrics/ModuleLength:
+  Enabled: false
+
+###################
+# Naming
+###################
+
+Naming/PredicateName:
+  Enabled: false
+  Exclude:
+    - !ruby/regexp /_serializer\.rb$/
+
+Naming/MemoizedInstanceVariableName:
+  Enabled: false
+  EnforcedStyleForLeadingUnderscores: required

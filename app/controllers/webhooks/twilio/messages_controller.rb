@@ -5,34 +5,8 @@ class Webhooks::Twilio::MessagesController < ApplicationController
   before_action :validate_twilio_request
 
   def create
-    body = params["Body"]
-    spotify = Spotify.new
-    track = spotify.track_search(body)
-
-    if session[:track]
-      answer = body.split(" ").first.downcase.strip
-      if answer == "yes"
-        message = "OK, adding that track now."
-        spotify.add_to_playlist(user: User.last, track_id: session[:track])
-        session[:track] = nil
-      elsif answer == "no"
-        session[:track] = nil
-        message = "What do you want to add?"
-      end
-    end
-
-    if !message
-      track = spotify.track_search(body)
-      if track
-        session[:track] = track.uri
-        message = "Did you want to add _#{track.name}_ by _#{track.artists.map(&:name).to_sentence}_?"
-      else
-        message = "I couldn't find any songs by searching for '#{body}'. Try something else."
-      end
-    end
-
     response = Twilio::TwiML::MessagingResponse.new
-    response.message(body: message)
+    response.message(body: generate_message(params["Body"]))
 
     render xml: response.to_xml
   end
@@ -43,6 +17,38 @@ class Webhooks::Twilio::MessagesController < ApplicationController
     return if TwilioRequestValidator.valid?(request)
 
     head :unauthorized
+  end
+
+  def generate_message(body)
+    if session[:track]
+      message_for_tracked_session(body, session[:track])
+    else
+      message_for_untracked_session(body)
+    end
+  end
+
+  def message_for_tracked_session(body, track_id)
+    case ChatGpt.get_user_intent(body)
+    when "positive"
+      Spotify.add_to_playlist!(user: User.last, track_id: track_id)
+      session[:track] = nil
+      ChatGpt.generate_friendly_message("add_track")
+    when "negative"
+      session[:track] = nil
+      ChatGpt.generate_friendly_message("not_add_track")
+    else
+      ChatGpt.generate_friendly_message("undetermined")
+    end
+  end
+
+  def message_for_untracked_session(body)
+    if track = Spotify.track_search(body)
+      session[:track] = track.uri
+      track_info = "#{track.name} by #{track.artists.map(&:name).to_sentence}"
+      ChatGpt.generate_track_search_message("found", track_info: track_info)
+    else
+      ChatGpt.generate_track_search_message("not_found", body: body)
+    end
   end
 
 end

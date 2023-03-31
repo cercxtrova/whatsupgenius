@@ -53,7 +53,7 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "rspotify"
-
+gem "ruby-openai"
 gem "twilio-ruby"
 
 gem "slim-rails"

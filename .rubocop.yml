@@ -151,6 +151,7 @@ Style/FrozenStringLiteralComment:
 # Use Ruby >= 1.9 syntax for hashes. Prefer { a: :b } over { :a => :b }.
 Style/HashSyntax:
   Enabled: true
+  EnforcedShorthandSyntax: never
 
 # Defining a method with parameters needs parentheses.
 Style/MethodDefParentheses:

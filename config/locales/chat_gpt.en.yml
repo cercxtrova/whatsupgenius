@@ -1,0 +1,45 @@
+en:
+  chat_gpt:
+    track_search: |-
+      Based on the intent, generate a funny message. The intent can be one of the following:
+
+      - found: A track was found with the following informations: %{track_info}. Ask the user if this is the correct track.
+      - not_found: A track was not found when searching for '%{body}'. Suggest trying something else.
+
+      Don't put quotation marks around your message.
+
+      Intent: '%{intent}'
+      Your funny message:
+    get_user_intent: |-
+      The user sent a message: '%{message}'. The user can reply in different languages, such as English or French.
+      Determine if the response is positive or negative. Here are some examples of expected responses:
+
+      Positive:
+      - "I would like to"
+      - "Je veux bien"
+      - "Yes, please"
+      - "Ouais"
+      - "Sounds good"
+      - "C'est bon pour moi"
+
+      Negative:
+      - "Forget about it"
+      - "Oublie"
+      - "No, thanks"
+      - "Non merci
+      - "I don't want to"
+      - "Laisse tomber"
+
+      Message: '%{message}'
+      User intent: (positive or negative)
+    generate_friendly_message: |-
+      Generate a funny message considering the intent. The intent can be one of the following:
+
+      - add_track: your message explain that you added the track.
+      - not_add_track: your message explain that you didn't add the track to the playlist.
+      - undetermined: your message explain that you are not sure if the user wants to add the track or not.
+
+      Don't put quotation marks around your message.
+
+      Intent: '%{intent}'
+      Your funny message:

@@ -54,6 +54,8 @@ gem "bootsnap", require: false
 
 gem "rspotify"
 
+gem "twilio-ruby"
+
 gem "slim-rails"
 
 gem "omniauth-rails_csrf_protection"

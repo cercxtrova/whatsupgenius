@@ -2,10 +2,12 @@
 
 module Users
   class Create
+    include Performable
+
     attr_accessor :user
 
-    def initialize(oauth_params)
-      @oauth_params = oauth_params
+    def initialize(oauth:)
+      @oauth = oauth
     end
 
     def perform
@@ -21,7 +23,7 @@ module Users
     attr_accessor :spotify_user, :playlist
 
     def find_spotify_user
-      self.spotify_user = RSpotify::User.new(@oauth_params)
+      self.spotify_user = RSpotify::User.new(@oauth)
     end
 
     def create_user!

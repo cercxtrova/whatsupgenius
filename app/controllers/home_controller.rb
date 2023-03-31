@@ -5,6 +5,6 @@ class HomeController < ApplicationController
   end
 
   def callback
-    @user = Users::Create.new(request.env["omniauth.auth"]).perform.user
+    @user = Users::Create.perform(oauth: request.env["omniauth.auth"]).user
   end
 end

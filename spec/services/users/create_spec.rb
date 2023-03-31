@@ -3,6 +3,8 @@
 require "rails_helper"
 
 RSpec.describe Users::Create do
+  subject { described_class.new(oauth_params) }
+
   let(:oauth_params) do
     {
       "id"          => "spotify_user_id",
@@ -22,7 +24,7 @@ RSpec.describe Users::Create do
   end
 
   it "creates a user with the given OAuth data" do
-    user = Users::Create.new(oauth_params).perform.user
+    user = subject.perform.user
 
     expect(user.spotify_user_id).to eq("spotify_user_id")
     expect(user.spotify_user_token).to eq("spotify_user_token")

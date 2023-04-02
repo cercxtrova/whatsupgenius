@@ -1,1 +1,11 @@
-h1 Well done my man
+p.text-md.font-medium.leading-relaxed.mb-2
+  | Awesome! Now, you just have to send a message to WhatsUpGenius 🧞 on WhatsApp to start the party!
+
+p.text-md.font-bold.leading-relaxed.mb-2
+  | Send 
+  span.text-gray-400
+    = Rails.application.credentials[:twilio][:join_code]
+  |  to 
+  span.text-gray-400
+    = "+#{Rails.application.credentials[:twilio][:whatsapp_number]}"
+  | .

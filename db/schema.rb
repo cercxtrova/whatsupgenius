@@ -16,7 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_201556) do
 
   create_table "users", force: :cascade do |t|
     t.string "phone"
-    t.text "last_request"
+    t.string "token"
     t.string "spotify_user_id"
     t.string "spotify_user_token"
     t.string "spotify_user_refresh_token"

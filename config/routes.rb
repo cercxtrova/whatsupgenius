@@ -4,8 +4,11 @@ Rails.application.routes.draw do
 
   controller :home do
     get :index
+    get :final_step
     get "/auth/spotify/callback", to: "home#callback"
   end
+
+  resources :users, only: %i[edit update], param: :token
 
   namespace :webhooks do
     namespace :twilio do

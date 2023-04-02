@@ -10,5 +10,35 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   body
-    main.container.mx-auto.mt-28.px-5.flex
-      = yield
+    main.min-h-screen.min-w-screen.bg-gray-100.text-gray-100.flex.items-center.justify-around
+      .w-96.bg-gray-600.rounded-lg.shadow-lg.p-4
+        = yield
+
+      .flex.flex-col.w-96.bg-gray-600.rounded-lg.shadow-lg.p-4[data-controller="carousel"]
+        .carousel-slides.overflow-hidden.mt-auto
+          .carousel-slide[data-carousel-target="slide"]
+            span
+              | WhatsUpGenius 🧞 is a WhatsApp a bot that allows you to manage a Spotify playlist.
+              |  It is so cool that it uses a fucking powerful AI that allows
+              |  you to talk to it like a human. Crazy, right?
+            br
+            br
+            | But, how does it work?
+          .carousel-slide.hidden[data-carousel-target="slide"]
+            | The first thing you need to do is to connect to Spotify.
+            |  This will allow the WhatsUpGenius 🧞 to create a playlist on your account and control it.
+            br
+            br
+            | It's very simple, just one click away!
+          .carousel-slide.hidden[data-carousel-target="slide"]
+            | Then, we will ask you for your phone number.
+            |  Your phone number is required to make the link between the sender and
+            |  the playlist WhatsUpGenius 🧞 has to modify.
+            br
+            br
+            | Then, all you have to do is to send a message to the given WhatsApp number
+            |  to start the conversation with WhatsUpGenius 🧞
+
+        .flex.justify-center.space-x-2.mt-auto.pt-4
+          - 3.times do |i|
+            button.w-2.h-2.rounded-full[data-action="carousel#dotClicked" data-carousel-target="dot"]

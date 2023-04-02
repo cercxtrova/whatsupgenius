@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "twilio-ruby"
-require "byebug"
 
 module TwilioRequestValidator
   def self.valid?(request)

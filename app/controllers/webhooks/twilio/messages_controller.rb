@@ -2,7 +2,7 @@
 
 class Webhooks::Twilio::MessagesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :validate_twilio_request
+  before_action :validate_twilio_request, :set_user
 
   def create
     response = Twilio::TwiML::MessagingResponse.new
@@ -19,6 +19,12 @@ class Webhooks::Twilio::MessagesController < ApplicationController
     head :unauthorized
   end
 
+  def set_user
+    phone = params["From"].sub("whatsapp:", "")
+
+    @user = User.find_by(phone: phone)
+  end
+
   def generate_message(body)
     if session[:track]
       message_for_tracked_session(body, session[:track])
@@ -30,7 +36,7 @@ class Webhooks::Twilio::MessagesController < ApplicationController
   def message_for_tracked_session(body, track_id)
     case ChatGpt.get_user_intent(body)
     when "positive"
-      Spotify.add_to_playlist!(user: User.last, track_id: track_id)
+      Spotify.add_to_playlist!(user: @user, track_id: track_id)
       session[:track] = nil
       ChatGpt.generate_friendly_message("add_track")
     when "negative"

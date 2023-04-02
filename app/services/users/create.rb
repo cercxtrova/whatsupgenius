@@ -14,13 +14,12 @@ module Users
       find_spotify_user
       create_user!
       create_playlist!
-      update_user!
       self
     end
 
     private
 
-    attr_accessor :spotify_user, :playlist
+    attr_accessor :spotify_user
 
     def find_spotify_user
       self.spotify_user = RSpotify::User.new(@oauth)
@@ -28,6 +27,7 @@ module Users
 
     def create_user!
       self.user = User.create!(
+        token:                      SecureRandom.hex(10),
         spotify_user_id:            spotify_user.id,
         spotify_user_token:         spotify_user.credentials["token"],
         spotify_user_refresh_token: spotify_user.credentials["refresh_token"]
@@ -35,11 +35,8 @@ module Users
     end
 
     def create_playlist!
-      self.playlist = spotify_user.create_playlist!("WhatsUpgenius", public: false)
-    end
-
-    def update_user!
-      user.update!(spotify_playlist_id: playlist.id)
+      playlist = spotify_user.create_playlist!("WhatsUpgenius", public: false)
+      user.update_columns(spotify_playlist_id: playlist.id)
     end
 
   end

@@ -1,0 +1,22 @@
+main {
+  background-image: url("https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80");
+  background-size: cover;
+}
+
+@layer components {
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(251, 146, 60, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(251, 146, 60, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(251, 146, 60, 0);
+    }
+  }
+}
+
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}

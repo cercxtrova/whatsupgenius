@@ -2,14 +2,16 @@
 
 WhatsUpGenius? is a WhatsApp bot that allows you to add music to a spotify playlist. The application, developed with Ruby on Rails, consists of a web interface to connect to Spotify and enter the phone number with which you want to communicate with the bot. Then, you just have to send a message to the bot to start using it.
 
-The application uses :
+![demo](https://media.cleanshot.cloud/media/44712/CcunEmeWwLNMc552DuPLTCa2kmDOYspEnAxEAnaL.jpeg?Expires=1680904722&Signature=WMQpIg4arTbPXp8FH4nHmr8OCxq6SC0v7Gf-80f7v7OLst62DavZnGhVeJDpGGnGTO-e3ZQSCKzYDsLnGlMpSyzKSz58b66VAkkUiIIBgx-cJcLGVuw3-3khZaRFgGjPp7jEpxYBG2cz1PA7aKkgzVLuWtUVPnWeo9-uLLe1piD32G1uxpw7iuy96ORXptQ~HsiDZx~c-SfG0WDDKZuiDdVH2VVV0pKUzkirFskqY55XgpsTWJ2H0jEoNwTe-6ZA10XX1NX2ICprWhB4l21sLkmjVCr4EG8WRsxZQnFCryAEijxHVE2aCHFFJBGxomzzu~YCo8j2BdG7YgcQc4yT2A__&Key-Pair-Id=K269JMAT9ZF4GZ)
+
+### The application uses :
 - Twilio (WhatsApp)
 - Spotify (you know why, right?)
 - OpenAI (to communicate with the bot in a natural way)
 
 Thus, thanks to OpenAI, each bot response (track found or not, music added, etc.) is unique. Also, when the bot asks you if you want to add the music to your playlist, no keyword is required. The bot is able to determine whether your answer is positive or negative and act accordingly.
 
-![demo](https://media.cleanshot.cloud/media/44712/CcunEmeWwLNMc552DuPLTCa2kmDOYspEnAxEAnaL.jpeg?Expires=1680904722&Signature=WMQpIg4arTbPXp8FH4nHmr8OCxq6SC0v7Gf-80f7v7OLst62DavZnGhVeJDpGGnGTO-e3ZQSCKzYDsLnGlMpSyzKSz58b66VAkkUiIIBgx-cJcLGVuw3-3khZaRFgGjPp7jEpxYBG2cz1PA7aKkgzVLuWtUVPnWeo9-uLLe1piD32G1uxpw7iuy96ORXptQ~HsiDZx~c-SfG0WDDKZuiDdVH2VVV0pKUzkirFskqY55XgpsTWJ2H0jEoNwTe-6ZA10XX1NX2ICprWhB4l21sLkmjVCr4EG8WRsxZQnFCryAEijxHVE2aCHFFJBGxomzzu~YCo8j2BdG7YgcQc4yT2A__&Key-Pair-Id=K269JMAT9ZF4GZ)
+---
 
 ## How to install it
 
@@ -58,9 +60,11 @@ openai:
   access_token: your_secret_key
 ```
 
-Prefect!
+Perfect!
 
-### Start the application
+---
+
+## Start the application
 
 Make sure your ngrok tunnel is open. If not, restart it and update the URL in the settings for the WhatsApp sandbox on Twilio.
 

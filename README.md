@@ -2,7 +2,7 @@
 
 WhatsUpGenius? is a WhatsApp bot that allows you to add music to a spotify playlist. The application, developed with Ruby on Rails, consists of a web interface to connect to Spotify and enter the phone number with which you want to communicate with the bot. Then, you just have to send a message to the bot to start using it.
 
-![demo](https://media.cleanshot.cloud/media/44712/CcunEmeWwLNMc552DuPLTCa2kmDOYspEnAxEAnaL.jpeg?Expires=1680904722&Signature=WMQpIg4arTbPXp8FH4nHmr8OCxq6SC0v7Gf-80f7v7OLst62DavZnGhVeJDpGGnGTO-e3ZQSCKzYDsLnGlMpSyzKSz58b66VAkkUiIIBgx-cJcLGVuw3-3khZaRFgGjPp7jEpxYBG2cz1PA7aKkgzVLuWtUVPnWeo9-uLLe1piD32G1uxpw7iuy96ORXptQ~HsiDZx~c-SfG0WDDKZuiDdVH2VVV0pKUzkirFskqY55XgpsTWJ2H0jEoNwTe-6ZA10XX1NX2ICprWhB4l21sLkmjVCr4EG8WRsxZQnFCryAEijxHVE2aCHFFJBGxomzzu~YCo8j2BdG7YgcQc4yT2A__&Key-Pair-Id=K269JMAT9ZF4GZ)
+![demo](https://media.cleanshot.cloud/media/44712/u6nIEwj5f6So0QfZfGisTtQxxxcZOJ1f36Kuy2pX.jpeg?Expires=1680906020&Signature=dIVC28Zgv1EcrYg4NxpIvFpg0~boBbzzfs6Cj7YDyCjQBVw3ry6TJTprldBuZ2zz59LiTn11cAeqK3R9oZehuyuUnGzMYo1y431YiK6fiXUigYH9FiW6crTbla0n7GOdzraMOrpd0pfU8Hq5tzX~s5FFSukhbdzS8xg7x7M6fZEsl8lShi2Fp96SiyhDOPEDi1E0wbWuLRAmRRXI1MLYsEkw6AfAR8oHghB6CF7dbxeEgh2EYCvrF67hev9byP~05lXV~NHHjI31xBm8WAzZEZq6Bce1fDHRmMsFmRY9p27EBwpKLD1T8-Y8wPAowavXjrp3FK90Ffs20xfcjekWYA__&Key-Pair-Id=K269JMAT9ZF4GZ)
 
 ### The application uses :
 - Twilio (WhatsApp)
